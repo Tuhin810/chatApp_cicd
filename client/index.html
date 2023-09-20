@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="https://media0.giphy.com/media/xT8qBhrlNooHBYR9f2/200.webp?cid=ecf05e47yco9xw4rexo79ujlhebhgiayqcr6ujzypjdfb0ev&rid=200.webp&ct=g" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#317EFB"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="manifest.json">
+  <title>DevChat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.1/socket.io.js"
+    integrity="sha512-oFOCo2/3DtjrJG4N27BjSLQWoiBv171sK6a+JiWjp/7agxC2nCUP358AqzxkBUb5jX8g6CYLPdSKQTbC0weCwA=="
+    crossorigin="anonymous"></script>
+  <!-- Script to emit/receive events from socket.io server -->
+  <script defer src="chat.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+ 
+  <link rel="stylesheet" href="./chat.css">
+</head>
+
+<body class="bg-white h-screen">
+ 
+ 
+  <div id="app" class=" h-screen  rounded-lg flex flex-col">
+    <div class="flex sm:items-center bg-blue-500 px-8 justify-between py-3  shadow-blue-400 drop-shadow-lg">
+      <div class="relative flex items-center space-x-4">
+         <div class="relative">
+            <span class="absolute text-green-500 right-0 bottom-0">
+               <svg width="20" height="20">
+                  <circle cx="8" cy="8" r="8" fill="currentColor"></circle>
+               </svg>
+            </span>
+         <img src="https://img.icons8.com/?size=2x&id=13724&format=png" alt="" class="w-10 sm:w-16 h-10 sm:h-16 rounded-full">
+         </div>
+         <div class="flex flex-col leading-tight">
+            <div class="text-2xl mt-1 flex items-center">
+               <span  class="text-white  mr-3">DevChat</span>
+            </div>
+            <span id="username" class="text-lg text-white ">
+               </span>
+         </div>
+      </div>
+      <div class="flex items-center space-x-2">
+         <button type="button" class="inline-flex items-center justify-center rounded-lg border h-10 w-10 transition duration-500 ease-in-out bg-gray-50 focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+         </button>
+         <button type="button" class="inline-flex items-center justify-center rounded-lg border h-10 w-10 transition duration-500 ease-in-out bg-gray-50 focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+         </button>
+         <button type="button" class="inline-flex items-center justify-center rounded-lg border h-10 w-10 transition duration-500 ease-in-out bg-gray-50 focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+            </svg>
+         </button>
+      </div>
+   </div>
+
+
+    <!-- Chat messages will be appended inside this container -->
+    <div id="chatContainer" class="h-screen  px-5 overflow-y-scroll pb-10 hideScroll pt-3"></div>
+
+    <!-- Form to enter and submit new chat messages -->
+
+    
+    <!-- Form to enter and submit new chat messages -->
+    <div class="center bg-blue-500 px-5 shadow-blue-400 shadow-xl py-5">
+      <form id="messageForm" class="flex gap-5">
+        <input class="input center py-3 w-full rounded-lg shadow-lg px-5 outline-none " type="text" id="messageInput" placeholder="Type your message here"/>
+        <button class="btn px-8 py-2 rounded-lg bg-green-500 shadow-xl hover:bg-green-600  text-white" type="submit" id="sendBtn">
+          Send
+        </button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
