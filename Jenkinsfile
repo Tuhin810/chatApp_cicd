@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         // Define environment variables
-        GITHUB_REPO = 'https://github.com/Tuhin810/chatApp_cicd.git'
+        GITHUB_REPO = 'git@github.com:Tuhin810/chatApp_cicd.git'
         DOCKER_IMAGE_NAME = 'your_docker_image_name'
         DOCKERHUB_USERNAME = 'tuhin08'
         DOCKERHUB_PASSWORD = 'S#@gFFB_cW.Bw35'
